@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Rezaei - 3D Skills Chart</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    canvas {
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #FF2D55;
+      text-shadow: 0 0 10px rgba(255, 45, 85, 0.8);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ali Rezaei - 3D Skills Radar Chart</h1>
+  <canvas id="skillsChart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['C++', 'Python', 'JavaScript', 'HTML', 'CSS'],
+        datasets: [{
+          label: 'Skills Proficiency',
+          data: [9, 8, 7, 6, 6],
+          backgroundColor: 'rgba(255, 45, 85, 0.3)',
+          borderColor: '#FF2D55',
+          pointBackgroundColor: '#FF2D55',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#FF2D55',
+          borderWidth: 3,
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(255, 255, 255, 0.3)' },
+            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+            pointLabels: { font: { size: 14, family: 'Space Mono' }, color: '#fff' },
+            ticks: { beginAtZero: true, max: 10, stepSize: 2, color: '#fff', backdropColor: 'transparent' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#fff', font: { size: 16, family: 'Space Mono' } } }
+        },
+        animation: {
+          duration: 2000,
+          easing: 'easeInOutBounce'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
